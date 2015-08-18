@@ -1,3 +1,4 @@
 .project
 .buildpath
 .settings/*
+example/admin/server_config.inc.php
