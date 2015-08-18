@@ -5,7 +5,9 @@ Portfolio CMS hasn't been designed for people without web development experience
 
 Portfolio CMS takes advantage of a variety of other tools:
 * [Bootstrap](http://getbootstrap.com/)
+* [jQuery](http://jquery.com/)
 * [CKEditor](http://ckeditor.com/)
+* [KCFinder](http://kcfinder.sunhater.com/)
 
 ## The problem with Wordpress
 Wordpress is a great CMS. Thousands of people use it including some huge companies such as [eBay](https://www.ebayinc.com/stories/news/) and [PlayStation](http://blog.us.playstation.com/). But Wordpress and many other content management systems are designed for blogging. Sure you can use it for other things and many people have. But it has always been a comprimise, relying on third party plugins and hiding the huge blogging capability under the carpet. Some artists like to maintain a blog and Wordpress works great for that. Others feel they have to use the blog tools and most just wish it would go away.
