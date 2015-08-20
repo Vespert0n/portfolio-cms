@@ -24,7 +24,7 @@ $_CONFIG = array(
     'disabled' => true,
     'uploadURL' => "upload",
     'uploadDir' => "",
-    'theme' => "default",
+    'theme' => "minimal",
 
     'types' => array(
 
