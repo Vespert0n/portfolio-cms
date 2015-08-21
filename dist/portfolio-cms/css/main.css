@@ -1,0 +1,32 @@
+.text-center {
+	text-align: center;
+}
+
+#sidebar .affix {
+	top: 30px;
+}
+
+#sidebar .affix-top {
+	position: static;
+	top: 290px;
+}
+
+#content > div {
+	margin-top: -30px;
+	padding-bottom: 50px;
+}
+
+#content h2 {
+	margin-top: 0;
+	padding-top: 30px;
+}
+
+h2 { margin-top: 30px; }
+.container-flow.alt { background: #eee; }
+.list-inline li { padding: 0; }
+
+@media (min-width: 992px) {
+	#sidebar .affix {
+		width: 262.5px;
+	}
+}
