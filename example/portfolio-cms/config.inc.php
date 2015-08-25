@@ -1,5 +1,4 @@
 <? require_once('server_config.inc.php');
-define('BASE_TITLE', 'Portfolio website');
 
 define('ADMIN_URL', BASE_URL.'admin/');
 define('CMS_URL', BASE_URL.'portfolio-cms/');
