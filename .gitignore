@@ -1,4 +1,4 @@
 .project
 .buildpath
 .settings/*
-example/admin/server_config.inc.php
+example/portfolio-cms/server_config.inc.php
