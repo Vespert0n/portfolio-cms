@@ -93,4 +93,10 @@ class portfolioCMS {
 				WHERE itmCollectionID = $collectionID";
 		return $this->sqlQuery($sql, RESULT);
 	}
+	
+	function addCollectionItem($collectionID, $title, $description, $type, $data, $thumb) {
+		$sql = "INSERT INTO items (itmCollectionID, itmTitle, itmDescription, itmType, itmData, itmThumbURL)
+				VALUES ($collectionID, '$title', '$description', '$type', '$data', '$thumb')";
+		$this->sqlQuery($sql, QUERY);
+	}
 } ?>
