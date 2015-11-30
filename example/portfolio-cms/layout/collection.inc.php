@@ -1,4 +1,8 @@
-<? $collection = $portfolioCMS->getCollectionByURL($page); ?>
+<? $collection = $portfolioCMS->getCollectionByURL($page);
+
+if(isset($_POST['ni-add'])) {
+	//$portfolioCMS->addCollectionItem($collection['colCollectionID'], $_POST['ni-title'], $_POST['ni-description'], $_POST['ni-type'], $data, $thumb)
+} ?>
 <div class="jumbotron" style="margin-top: -20px;">
 	<div class="container">
 		<div class="row">
@@ -78,12 +82,34 @@
 			</div>
 			<div>
 				<h2 id="new-item">Add new item</h2>
-				<form class="form-horizontal" name="new-item">
+				<form class="form-horizontal" name="new-item" method="post">
 					<input type="hidden" name="ni-collection-id" value="<?=$collection['colCollectionID']?>">
+					<div class="form-group">
+						<label for="ni-type" class="col-sm-2 control-label">Type</label>
+						<div class="col-sm-10">
+							<select class="form-control" name="ni-type">
+								<option value="img" <?=($collection['colDefaultType'] == 'img')?'selected':''?>>Image</option>
+								<option value="yt" <?=($collection['colDefaultType'] == 'yt')?'selected':''?>>YouTube</option>
+								<option value="vim" <?=($collection['colDefaultType'] == 'vim')?'selected':''?>>Vimeo</option>
+							</select>
+						</div>
+					</div>
 					<div class="form-group">
 						<label for="ni-title" class="col-sm-2 control-label">Title</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" name="ni-title" placeholder="title">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="ni-url-title" class="col-sm-2 control-label">URL Title</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="ni-url-title" placeholder="url title">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="ni-data" class="col-sm-2 control-label">Data</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="ni-data" placeholder="data">
 						</div>
 					</div>
 					<div class="form-group">
@@ -92,7 +118,36 @@
 							<textarea name="ni-description" class="form-control"></textarea>
 						</div>
 					</div>
+					<div class="form-group">
+						<div class="col-sm-10 pull-right">
+							<input type="submit" class="btn btn-primary" name="ni-add" value="Add item">
+						</div>
+					</div>
 				</form>
+				<script>
+					$(function() {
+						var type = '<?=$collection['colDefaultType']?>';
+
+						switchType(type);
+					});
+
+					function switchType(type){
+						switch(type) {
+							case 'img':
+								$('label[for="ni-data"]').text('Image');
+								$('input[name="ni-data"]').attr('placeholder', 'upload image');
+								break;
+							case 'yt':
+								$('label[for="ni-data"]').text('YouTube URL');
+								$('input[name="ni-data"]').attr('placeholder', 'youtube url');
+								break;
+							case 'vim':
+								$('label[for="ni-data"]').text('Vimeo URL');
+								$('input[name="ni-data"]').attr('placeholder',  'vimeo url');
+								break;
+						}
+					}
+				</script>
 			</div>
 		</div>
 	</div>
