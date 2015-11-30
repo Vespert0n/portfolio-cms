@@ -1,4 +1,5 @@
 <? require_once('config.inc.php');
+require_once('functions.inc.php');
 
 define('QUERY', 'QUERY');
 define('RESULT', 'RESULT');
@@ -65,6 +66,24 @@ class portfolioCMS {
 				WHERE webDataName = '$dataType'";
 		$row = $this->sqlQuery($sql, ROW);
 		return $row['webDataContent'];
+	}
+	
+	
+	/* * * * * * * * * * * * * *
+	 *      Page Functions     *
+	 * * * * * * * * * * * * * */
+	
+	function getPageList() {
+		$sql = "SELECT * FROM pages";
+		$pages = $this->sqlQuery($sql, RESULT);
+		
+		// usort() only works on arrays with multiple values
+		// so only sort it if there is more than one page
+		if(count($pages) > 1) {
+			usort($pages, 'compareByNameElseFilename');
+		}
+		
+		return $pages;
 	}
 	
 	

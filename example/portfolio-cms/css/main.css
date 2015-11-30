@@ -25,6 +25,30 @@ h2 { margin-top: 30px; }
 .container-flow.alt { background: #eee; }
 .list-inline li { padding: 0; }
 
+.delete-button,
+.edit-button {
+	float: right;
+	margin: 0 3px;
+}
+
+.delete-button:hover,
+.delete-button {
+	color: #a00;
+}
+
+.edit-button:hover,
+.edit-button {
+	color: #0086c6;
+}
+
+.delete-button .fa-trash-o.hover:hover::before {
+	content: "\f1f8";
+}
+
+.edit-button .fa-file-text-o.hover:hover::before {
+	content: "\f15c";
+}
+
 @media (min-width: 992px) {
 	#sidebar .affix {
 		width: 262.5px;

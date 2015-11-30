@@ -1,7 +1,7 @@
 <div class="jumbotron" style="margin-top: -20px;">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-xs-12">
 				<h1>Website</h1>
 				<p>Manage your website's information</p>
 			</div>
@@ -10,42 +10,102 @@
 </div>
 <div class="container">
 	<div class="row">
-		<nav class="col-sm-3 hidden-xs" id="sidebar">
+		<nav class="col-xs-3 hidden-xs" id="sidebar">
 			<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="290">
 				<li><a href="#basic-info">Basic info</a></li>
+				<li><a href="#pages">Pages</a></li>
+				<li><a href="#menus">Menus</a></li>
 				<li><a href="#settings">Settings</a></li>
 			</ul>
 		</nav>
-		<div class="col-sm-9" id="content">
+		<div class="col-xs-9" id="content">
 			<div>
 				<h2 id="basic-info">Basic info</h2>
 				<form class="form-horizontal" name="website">
 					<div class="form-group">
-						<label for="website-title" class="col-sm-2 control-label">Title</label>
-						<div class="col-sm-10">
+						<label for="website-title" class="col-xs-2 control-label">Title</label>
+						<div class="col-xs-10">
 							<input type="text" class="form-control" name="website-title" placeholder="title" value="<?=$portfolioCMS->getWebsiteData('siteTitle')?>">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="website-oneliner" class="col-sm-2 control-label">One liner</label>
-						<div class="col-sm-10">
+						<label for="website-oneliner" class="col-xs-2 control-label">One liner</label>
+						<div class="col-xs-10">
 							<input type="text" class="form-control" name="website-oneliner" placeholder="one liner" value="<?=$portfolioCMS->getWebsiteData('siteTagline')?>">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="website-description" class="col-sm-2 control-label">Description</label>
-						<div class="col-sm-10">
+						<label for="website-description" class="col-xs-2 control-label">Description</label>
+						<div class="col-xs-10">
 							<textarea name="website-description" class="form-control"><?=$portfolioCMS->getWebsiteData('siteDescription')?></textarea>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-2 control-label">URL</label>
-						<div class="col-sm-10">
+						<label class="col-xs-2 control-label">URL</label>
+						<div class="col-xs-10">
 							<p class="form-control-static"><a href="<?=BASE_URL?>" target="_blank"><?=$portfolioCMS->getWebsiteData('siteURL')?></a></p>
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-10 pull-right">
+						<div class="col-xs-10 pull-right">
+							<button type="button" class="btn btn-primary">Update</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div>
+				<h2 id="pages">Pages</h2>
+				<? $pages = $portfolioCMS->getPageList();
+				
+				if($pages == NULL) { ?>
+					<p>Hmm... You don't seem to have any pages yet.</p>
+				<? } else { ?>
+					<ul class="list-group">
+						<? foreach($pages as $page) { ?>
+							<li class="list-group-item">
+								<a class="delete-button" href="#" title="delete"><i class="fa fa-trash-o hover"></i></a>
+								<a class="edit-button" href="<?=ADMIN_URL?>page/edit/<?=$page['pgFilename']?>" title="edit"><i class="fa fa-file-text-o hover"></i></a>
+								<a href="<?=BASE_URL.$page['pgFilename']?>" target="_blank">
+									<? if($page['pgName'] != NULL || $page['pgName'] != '') { ?>
+										<?=$page['pgName']?> <small>(<?=$page['pgFilename']?>)</small>
+									<? } else { ?>
+										<?=$page['pgFilename']?>
+									<? } ?>
+								</a>
+							</li>
+						<? } ?>
+					</ul>
+				<? } ?>
+			</div>
+			<div>
+				<h2 id="menus">Menus</h2>
+				<form class="form-horizontal" name="website">
+					<div class="form-group">
+						<label for="website-title" class="col-xs-2 control-label">Title</label>
+						<div class="col-xs-10">
+							<input type="text" class="form-control" name="website-title" placeholder="title" value="<?=$portfolioCMS->getWebsiteData('siteTitle')?>">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="website-oneliner" class="col-xs-2 control-label">One liner</label>
+						<div class="col-xs-10">
+							<input type="text" class="form-control" name="website-oneliner" placeholder="one liner" value="<?=$portfolioCMS->getWebsiteData('siteTagline')?>">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="website-description" class="col-xs-2 control-label">Description</label>
+						<div class="col-xs-10">
+							<textarea name="website-description" class="form-control"><?=$portfolioCMS->getWebsiteData('siteDescription')?></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">URL</label>
+						<div class="col-xs-10">
+							<p class="form-control-static"><a href="<?=BASE_URL?>" target="_blank"><?=$portfolioCMS->getWebsiteData('siteURL')?></a></p>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-10 pull-right">
 							<button type="button" class="btn btn-primary">Update</button>
 						</div>
 					</div>
@@ -55,8 +115,8 @@
 				<h2 id="settings">Settings</h2>
 				<form class="form-horizontal" name="settings">
 					<div class="form-group">
-						<label for="settings-date" class="col-sm-2 control-label">Date format</label>
-						<div class="col-sm-10">
+						<label for="settings-date" class="col-xs-2 control-label">Date format</label>
+						<div class="col-xs-10">
 							<select class="form-control" name="settings-date">
 								<option value="j M, Y" <?=($portfolioCMS->getWebsiteData('siteDateFormat') == "j M, Y") ? 'selected' : '';?>><?=date("j M, Y")?></option>
 								<option value="l M j, Y" <?=($portfolioCMS->getWebsiteData('siteDateFormat') == "l M j, Y") ? 'selected' : '';?>><?=date("l M j, Y")?></option>
@@ -67,8 +127,8 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="settings-time" class="col-sm-2 control-label">Time format</label>
-						<div class="col-sm-10">
+						<label for="settings-time" class="col-xs-2 control-label">Time format</label>
+						<div class="col-xs-10">
 							<select class="form-control" name="settings-time">
 								<option value="g:i a" <?=($portfolioCMS->getWebsiteData('siteDateFormat') == "g:i a") ? 'selected' : '';?>><?=date("g:i a")?></option>
 								<option value="g:i A" <?=($portfolioCMS->getWebsiteData('siteDateFormat') == "g:i A") ? 'selected' : '';?>><?=date("g:i A")?></option>
@@ -78,8 +138,8 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="settings-default-admin" class="col-sm-2 control-label">Default admin page</label>
-						<div class="col-sm-10">
+						<label for="settings-default-admin" class="col-xs-2 control-label">Default admin page</label>
+						<div class="col-xs-10">
 							<select class="form-control" name="settings-default-admin">
 								<option value="website" <?=($portfolioCMS->getWebsiteData('siteDefaultAdminPage') == "website") ? 'selected' : '';?>>Website</option>
 								<? foreach($collections as $collection) { ?>
@@ -89,7 +149,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-10 pull-right">
+						<div class="col-xs-10 pull-right">
 							<button type="button" class="btn btn-primary">Update</button>
 						</div>
 					</div>
