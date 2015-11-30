@@ -100,6 +100,22 @@ class portfolioCMS {
 	
 	
 	/* * * * * * * * * * * * * *
+	 *      Menu Functions     *
+	 * * * * * * * * * * * * * */
+	
+	function getMenuList() {
+		$sql = "SELECT * FROM menus";
+		return $this->sqlQuery($sql, RESULT);
+	}
+	
+	function getMenu($menuid) {
+		$sql = "SELECT * FROM menus
+				WHERE meMenuID = $menuid";
+		return $this->sqlQuery($sql, ROW);
+	}
+	
+	
+	/* * * * * * * * * * * * * *
 	 *  Collections Functions  *
 	 * * * * * * * * * * * * * */
 	

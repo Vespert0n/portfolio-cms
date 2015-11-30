@@ -65,37 +65,13 @@
 			</div>
 			<div>
 				<h2 id="menus">Menus</h2>
-				<form class="form-horizontal" name="website">
-					<div class="form-group">
-						<label for="website-title" class="col-xs-2 control-label">Title</label>
-						<div class="col-xs-10">
-							<input type="text" class="form-control" name="website-title" placeholder="title" value="<?=$portfolioCMS->getWebsiteData('siteTitle')?>">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="website-oneliner" class="col-xs-2 control-label">One liner</label>
-						<div class="col-xs-10">
-							<input type="text" class="form-control" name="website-oneliner" placeholder="one liner" value="<?=$portfolioCMS->getWebsiteData('siteTagline')?>">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="website-description" class="col-xs-2 control-label">Description</label>
-						<div class="col-xs-10">
-							<textarea name="website-description" class="form-control"><?=$portfolioCMS->getWebsiteData('siteDescription')?></textarea>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-xs-2 control-label">URL</label>
-						<div class="col-xs-10">
-							<p class="form-control-static"><a href="<?=BASE_URL?>" target="_blank"><?=$portfolioCMS->getWebsiteData('siteURL')?></a></p>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-xs-10 pull-right">
-							<button type="button" class="btn btn-primary">Update</button>
-						</div>
-					</div>
-				</form>
+				<? $menus = $portfolioCMS->getMenuList();
+
+				if($menus == NULL) {
+					include('alerts/no_menus.alert.php');
+				} else {
+					include('menu_list.inc.php');
+				} ?>
 			</div>
 			<div>
 				<h2 id="settings">Settings</h2>

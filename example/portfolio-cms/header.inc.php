@@ -2,6 +2,8 @@
 require_once('portfolio-cms/functions.inc.php');
 require_once('portfolio-cms/start.class.php');
 
+include('portfolio-cms/menu.inc.php');
+
 if(!isset($portfolioCMS) || (isset($portfolioCMS) && !is_a($portfolioCMS, 'portfolioCMS')))
 	$portfolioCMS = new portfolioCMS();
 

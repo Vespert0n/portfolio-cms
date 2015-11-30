@@ -7,3 +7,5 @@ RewriteRule ^([^/]*)$	$1.php
 RewriteRule ^admin/([^/]*)/?$				admin.php?page=$1
 RewriteRule ^admin/page/([^/]*)/?$			admin.php?page=page&action=$1
 RewriteRule ^admin/page/([^/]*)/([^/]*)/?$	admin.php?page=page&action=$1&filename=$2
+RewriteRule ^admin/menu/([^/]*)/?$			admin.php?page=menu&action=$1
+RewriteRule ^admin/menu/([^/]*)/([^/]*)/?$	admin.php?page=menu&action=$1&menuid=$2
