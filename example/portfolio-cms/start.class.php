@@ -86,6 +86,18 @@ class portfolioCMS {
 		return $pages;
 	}
 	
+	function getPage($pageid) {
+		$sql = "SELECT * FROM pages
+				WHERE pgPageID = $pageid";
+		return $this->sqlQuery($sql, ROW);
+	}
+	
+	function getPageByFilename($filename) {
+		$sql = "SELECT * FROM pages
+				WHERE pgFilename = '$filename'";
+		return $this->sqlQuery($sql, ROW);
+	}
+	
 	
 	/* * * * * * * * * * * * * *
 	 *  Collections Functions  *

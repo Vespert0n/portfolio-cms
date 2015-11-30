@@ -57,25 +57,11 @@
 				<h2 id="pages">Pages</h2>
 				<? $pages = $portfolioCMS->getPageList();
 				
-				if($pages == NULL) { ?>
-					<p>Hmm... You don't seem to have any pages yet.</p>
-				<? } else { ?>
-					<ul class="list-group">
-						<? foreach($pages as $page) { ?>
-							<li class="list-group-item">
-								<a class="delete-button" href="#" title="delete"><i class="fa fa-trash-o hover"></i></a>
-								<a class="edit-button" href="<?=ADMIN_URL?>page/edit/<?=$page['pgFilename']?>" title="edit"><i class="fa fa-file-text-o hover"></i></a>
-								<a href="<?=BASE_URL.$page['pgFilename']?>" target="_blank">
-									<? if($page['pgName'] != NULL || $page['pgName'] != '') { ?>
-										<?=$page['pgName']?> <small>(<?=$page['pgFilename']?>)</small>
-									<? } else { ?>
-										<?=$page['pgFilename']?>
-									<? } ?>
-								</a>
-							</li>
-						<? } ?>
-					</ul>
-				<? } ?>
+				if($pages == NULL) {
+					include('alerts/no_pages.alert.php');
+				} else {
+					include('page_list.inc.php');
+				} ?>
 			</div>
 			<div>
 				<h2 id="menus">Menus</h2>

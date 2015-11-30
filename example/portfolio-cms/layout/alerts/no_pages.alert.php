@@ -1,0 +1,1 @@
+<div class="alert alert-info">Hmm... You don't seem to have any pages yet.</div>

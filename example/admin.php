@@ -10,9 +10,17 @@ else
 
 require_once('portfolio-cms/header.inc.php');
 
-if($page == 'website')
-	include_once('portfolio-cms/layout/website.inc.php');
-else
-	include_once('portfolio-cms/layout/collection.inc.php');
+switch($page) {
+	case 'website':
+		include_once('portfolio-cms/layout/website.inc.php');
+		break;
+	case 'page':
+		include_once('portfolio-cms/layout/page.inc.php');
+		break;
+	default:
+		include_once('portfolio-cms/layout/collection.inc.php');
+		break;
+}
+	
 
 include_once('portfolio-cms/footer.inc.php');
