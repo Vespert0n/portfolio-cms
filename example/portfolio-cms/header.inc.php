@@ -1,4 +1,5 @@
 <? require_once('portfolio-cms/config.inc.php');
+require_once('portfolio-cms/functions.inc.php');
 require_once('portfolio-cms/start.class.php');
 
 if(!isset($portfolioCMS) || (isset($portfolioCMS) && !is_a($portfolioCMS, 'portfolioCMS')))
@@ -14,6 +15,8 @@ $collections = $portfolioCMS->getCollections(); ?>
 	
 	<link rel="stylesheet" href="<?=BOOTSTRAP_URL?>css/bootstrap.min.css">
 	<script src="<?=BOOTSTRAP_URL?>js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="<?=CSS_URL?>font-awesome.min.css">
 	
 	<link rel="stylesheet" href="<?=CSS_URL?>main.css">
 </head>
