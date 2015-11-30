@@ -14,3 +14,10 @@ function compareByNameElseFilename($a, $b) {
 	
 	return strcmp($aID, $bID);
 }
+
+function printPageName($name, $filename) {
+	if($name != NULL || $name != '')
+		return $name." <small>(".$filename.")</small>";
+	else
+		return $filename;
+}
